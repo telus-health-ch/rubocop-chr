@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rubocop-chr (0.1.0)
+    rubocop-chr (0.2.0)
       rubocop
 
 GEM
@@ -46,6 +46,7 @@ GEM
     unicode-display_width (2.2.0)
 
 PLATFORMS
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -56,4 +57,4 @@ DEPENDENCIES
   rubocop-chr!
 
 BUNDLED WITH
-   2.3.9
+   2.4.10
