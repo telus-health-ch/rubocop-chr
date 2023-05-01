@@ -26,7 +26,7 @@ Rails5/StringConditional:
   VersionAdded: '0.50'
 
 Flag/FeatureFlagName:
-  Description: 'Feature Flag Name is a cop that checks for if feature flag name is following TELUS specifications.'
+  Description: 'Feature Flag Name is a cop that checks for if feature flag name is following snake_case format.'
   Enabled: true
   SafeAutocorrect: false
   VersionAdded: '0.50'
