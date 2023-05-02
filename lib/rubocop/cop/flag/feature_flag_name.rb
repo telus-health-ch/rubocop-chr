@@ -4,7 +4,7 @@ module RuboCop
   module Cop
     module Flag
       # The Feature Flag Name Cop is used to identify flag names that are not
-      # using the sneak case pattern.
+      # using the snake case pattern.
       #
       # @example
       #   # bad
