@@ -25,6 +25,12 @@ Rails5/StringConditional:
   SafeAutocorrect: false
   VersionAdded: '0.50'
 
+Rails5/NoStringDefaultForJson:
+  Description: 'NoStringDefaultForJson is a cop that no new json or jsonb fields have string default values.'
+  Enabled: true
+  SafeAutocorrect: false
+  VersionAdded: '0.50'
+
 Flag/FeatureFlagName:
   Description: 'Feature Flag Name is a cop that checks for if feature flag name is following snake_case format.'
   Enabled: true
