@@ -20,7 +20,7 @@ module RuboCop
       #     t.jsonb :visible_values, default: []
       #   end
       #
-      #   # bad
+      #   # good
       #   change_column :questions, :attr, :json, default: {}
       class NoStringDefaultForJson < Cop
         MSG = 'Do not use string as a default value for JSON or JSONB columns. Column: %<column>s'.freeze
