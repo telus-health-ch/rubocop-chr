@@ -36,4 +36,14 @@ RSpec.describe RuboCop::Cop::Rails5::NoStringDefaultForJson, :config do
       change_column :questions, :archive_data, :jsonb, default: {}
     RUBY
   end
+
+  it 'does not register offenses when not defining a default value' do
+    expect_no_offenses(<<~RUBY)
+      add_column :appointments, :more_data, :json
+    RUBY
+
+    expect_no_offenses(<<~RUBY)
+      change_column :questions, :archive_data, :jsonb
+    RUBY
+  end
 end
