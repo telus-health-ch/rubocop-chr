@@ -5,7 +5,7 @@ require 'yaml'
 module RuboCop
   module Cop
     module Migration
-      # Ensure that no one commits any migrations where a column name uses a reserve word.
+      # Ensure that no one commits any migrations where a column name uses a reserved word.
       # The reserved words for postgres can be found here: https://www.postgresql.org/docs/current/sql-keywords-appendix.html
       class ReservedWordColumnName < Cop
         MSG = 'Avoid using PostgreSQL reserved words for column names. Found: %<reserved_word>s'
