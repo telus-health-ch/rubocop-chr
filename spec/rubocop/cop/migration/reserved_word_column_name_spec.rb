@@ -19,4 +19,17 @@ RSpec.describe RuboCop::Cop::Migration::ReservedWordColumnName do
 
     expect(cop.offenses).to be_empty
   end
+
+  it 'registers an offense when renaming a non-reserved word to a reserved word' do
+    inspect_source('rename_column :users, :nomenclature, :select')
+
+    expect(cop.offenses.size).to eq(1)
+    expect(cop.messages).to eq(['Avoid using PostgreSQL reserved words for column names. Found: SELECT'])
+  end
+
+  it 'does not register an offense when renaming a reserved word to a non-reserved word' do
+    inspect_source('rename_column :users, :select, :nomenclature')
+
+    expect(cop.offenses).to be_empty
+  end
 end

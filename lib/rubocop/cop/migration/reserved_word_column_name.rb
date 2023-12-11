@@ -16,20 +16,41 @@ module RuboCop
         def on_send(node)
           return unless migration_method?(node)
 
-          column_name = extract_column_name(node).upcase
-          return unless POSTGRESQL_RESERVED_WORDS.include?(column_name)
-
-          add_offense(node, message: format(MSG, reserved_word: column_name))
+          column_name = extract_column_name_based_on_method(node)
+          check_column_name(node, column_name) if column_name
         end
 
         private
 
         def migration_method?(node)
-          node.method_name == :add_column || node.method_name == :remove_column || node.method_name == :rename_column
+          %i[add_column rename_column].include?(node.method_name)
+        end
+
+        def extract_column_name_based_on_method(node)
+          case node.method_name
+          when :add_column
+            extract_column_name(node)
+          when :rename_column
+            extract_new_column_name(node)
+          end
         end
 
         def extract_column_name(node)
           node.arguments[1].to_a[0].to_s
+        end
+
+        def extract_new_column_name(node)
+          node.arguments[2].to_a[0].to_s
+        end
+
+        def check_column_name(node, column_name)
+          return unless reserved_word?(column_name)
+
+          add_offense(node, message: format(MSG, reserved_word: column_name.upcase))
+        end
+
+        def reserved_word?(column_name)
+          POSTGRESQL_RESERVED_WORDS.include?(column_name.upcase)
         end
       end
     end
