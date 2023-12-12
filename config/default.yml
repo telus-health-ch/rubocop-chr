@@ -36,3 +36,9 @@ Flag/FeatureFlagName:
   Enabled: true
   SafeAutocorrect: false
   VersionAdded: '0.50'
+
+Migration/ReservedWords:
+  Description: 'Reserved Words is a cop that checks for if reserved words are used in migration.'
+  Enabled: true
+  SafeAutocorrect: false
+  VersionAdded: '0.52.0'
