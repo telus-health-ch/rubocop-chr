@@ -42,3 +42,9 @@ Migration/ReservedWords:
   Enabled: true
   SafeAutocorrect: false
   VersionAdded: '0.52.0'
+
+Rails6/NoUpdateAttributes:
+  Description: 'NoUpdateAttributes is a cop that prevents the use of deprecated update_attributes that will be removed on Rails 6.1.'
+  Enabled: true
+  SafeAutocorrect: false
+  VersionAdded: '0.52.0'
